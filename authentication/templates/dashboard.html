@@ -1,0 +1,101 @@
+{% comment %} 
+
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+{% comment %} <a class="nav-link text-danger" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mr-2"></i>LOGOUT</a> {% endcomment %}
+{% comment %} </form>
+  <div>
+    <h3>This is Mohammad Al-Amin's school</h3>
+  </div>
+
+{% endblock %} {% endcomment %} 
+
+{% comment %} {% load static %} {% endcomment %}
+{% block title_text %}ড্যাশবোর্ড{% endblock %}
+
+{% block extra_css %}
+<style>
+    .dbg a h4{
+        font-size: 24px;
+    }
+    h4{
+        color: #fff;
+        font-size: 26px !important;
+    }
+</style>
+{% endblock extra_css %}
+
+{% block content_body %}
+
+<div class="dbg">    
+    <div class="row pl-2 pr-2">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 col-xl-3 banner-card">
+            <a href="" class="card card-item dashboard_item">
+                <div class="card-body text-center">
+                    {% comment %} <img class="all_car" src="{% static 'images/all_vehicle.png' %}"> {% endcomment %}
+                    <h4 class="tile-title text-center mt-2">
+                        সমস্ত গাড়ি
+                    </h4>
+                </div>
+            </a>
+        </div> 
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 col-xl-3 banner-card">
+            <a href="" class="card card-item dashboard_item">
+                <div class="card-body text-center">
+                    {% comment %} <img src="{% static 'images/office-car.png' %}" alt=""> {% endcomment %}
+                    <h4 class="tile-title text-center mt-2">
+                        প্রকল্পের গাড়ি
+                    </h4>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 col-xl-3 banner-card">
+            {% comment %} <a href="{% url 'vehicle:office_car_list' %}" class="card card-item dashboard_item"> {% endcomment %}
+                <div class="card-body text-center">
+                    {% comment %} <img src="{% static 'images/searching.png' %}" alt=""> {% endcomment %}
+                    <h4 class="tile-title text-center mt-2">
+                        দপ্তরের গাড়ি
+                    </h4>
+                </div>
+            </a>
+        </div>        
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 col-xl-3 banner-card">
+            {% comment %} <a href="{% url 'core:assign_dashboard' %}" class="card card-item dashboard_item"> {% endcomment %}
+                <div class="card-body text-center">
+                    {% comment %} <img class="allocation" src="{% static 'images/Assign_3-removebg-preview.png' %}" alt=""> {% endcomment %}
+                    <h4 class="tile-title text-center mt-2">বরাদ্দ করুন</h4>
+                </div>
+            </a>
+        </div>
+        {% for obj in category %}
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 col-xl-3 banner-card">
+            {% comment %} <a href="{% url 'vehicle:expense_list' obj.pk %}" class="card card-item dashboard_item"> {% endcomment %}
+                <div class="card-body text-center">
+                    {% comment %} <img src="{% if obj.image %}{{ obj.image.url }}{% else %}{% static 'images/assign.png' %}{% endif %}"> {% endcomment %}
+                    <h4 class="tile-title text-center mt-3">
+                        {{ obj.name_bn }}
+                    </h4>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 col-xl-3 banner-card">
+            {% comment %} <a href="{% url 'core:expense_dashboard' %}" class="card card-item dashboard_item"> {% endcomment %}
+                <div class="card-body text-center">
+                    {% comment %} <img src="{% static 'images/expenses.png' %}"> {% endcomment %}
+                    <h4 class="tile-title text-center mt-2">
+                        বরাদ্দ এবং ব্যয়
+                    </h4>
+                </div>
+            </a>
+        </div>
+        
+        
+        
+        
+        
+        
+    </div>
+</div>
+{% endblock %}
