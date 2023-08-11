@@ -1,0 +1,57 @@
+{% comment %} {% extends 'base/base.html' %} {% endcomment %}
+{% load static %}
+{% block title_text %}Student{% endblock %}
+{% block breadcrumb %}
+{% url 'index' as home_url %}
+    <li>
+        <a href="{{home_url}}" class="{% if request.path == home_url%}activated{% endif %}">
+            <i class="fas fa-home"></i>
+        </a>
+    </li>
+{% url 'core:assign_dashboard' as assign_dashboard_url %}
+    <li>
+        <a href="{{assign_dashboard_url}}" class="{% if request.path == assign_dashboard_url%}activated{% endif %}">
+            <i class="fas fa-check-double mr-2"></i>
+        </a>
+    </li>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    h4{
+        color:red;
+        font-size: 26px !important;
+    }
+</style>
+{% endblock extra_css %}
+
+
+{% block content_body %}
+<div class="">
+    <div class="row mt-5"></div>
+    <div class="row mt-5 pl-5 pr-5">        
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <a href="{% url 'create' %}" class="card card-item dashboard_item">
+                <div class="card-body text-center">
+                    <img src="" alt="">
+                    <h4 class="tile-title text-center mt-2" style="color:#8B0000
+                    !important;">
+                        Student create
+                    </h4>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <a href="{% url 'list' %}" class="card card-item dashboard_item">
+                <div class="card-body text-center">
+                    <h4 class="tile-title text-center mt-2" style="color:#8B0000
+                    !important;">
+                        Student List
+                    </h4>
+                </div>
+            </a>
+        </div>
+               
+    </div>        
+</div>
+{% endblock %}
