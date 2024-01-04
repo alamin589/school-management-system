@@ -55,7 +55,6 @@ class StudentCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     success_message = "New student successfully added."
 
     def get_form(self):
-        """add date picker in forms"""
         form = super(StudentCreateView, self).get_form()
         form.fields["date_of_birth"].widget = widgets.DateInput(attrs={"type": "date"})
         form.fields["address"].widget = widgets.Textarea(attrs={"rows": 2})

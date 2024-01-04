@@ -13,6 +13,14 @@
 {% endblock extra_css %}
 
 {% block content_body %}
+<nav>
+    <ul>
+        <li><a href="{% url 'user-login' %}">Login</a></li>
+        <li><a href="{% url 'user-registration' %}">Registration</a></li>
+        <li><a href="{% url 'user-logout' %}">Logout</a></li>
+        
+    </ul>
+</nav>
 
 <div>    
     <div class="row pl-2 pr-2">

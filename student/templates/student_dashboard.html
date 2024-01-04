@@ -1,7 +1,7 @@
 {% comment %} {% extends 'base/base.html' %} {% endcomment %}
 {% load static %}
 {% block title_text %}Student{% endblock %}
-{% block breadcrumb %}
+{% comment %} {% block breadcrumb %}
 {% url 'index' as home_url %}
     <li>
         <a href="{{home_url}}" class="{% if request.path == home_url%}activated{% endif %}">
@@ -14,7 +14,7 @@
             <i class="fas fa-check-double mr-2"></i>
         </a>
     </li>
-{% endblock %}
+{% endblock %} {% endcomment %}
 
 {% block extra_css %}
 <style>
